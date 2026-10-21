@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071426">
+  <meta name="description" content="An animated, beginner-friendly visual guide to AWS Application Load Balancers. #Buildwithmohit">
+  <title>Application Load Balancer Visual — #Buildwithmohit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Application Load Balancer Visual home">
+      <span class="brand-mark" aria-hidden="true">↗</span><span><strong>Cloud Sketch</strong><small>LEARN AWS BY SEEING IT</small></span>
+    </a>
+    <div class="top-actions"><span class="project-tag">AWS NETWORKING</span><button id="themeToggle" class="icon-button" type="button" aria-label="Switch theme">☼ <span>Theme</span></button></div>
+  </header>
+  <main>
+    <section class="intro">
+      <div class="eyebrow"><span class="live-dot"></span> INTERACTIVE ARCHITECTURE LAB <span class="brand-hash">#Buildwithmohit</span></div>
+      <h1>Meet the <span>Application Load Balancer.</span></h1>
+      <p>Ravi’s online shop is getting busy. Follow each request to see how a helpful “receptionist” keeps the store running smoothly.</p>
+    </section>
+    <section class="workspace" aria-label="Interactive load balancer lesson">
+      <aside class="step-sidebar">
+        <div class="sidebar-heading"><div><span class="section-kicker">YOUR LEARNING PATH</span><h2>Explore the flow</h2></div><span id="stepCounter" class="step-counter">01 / 09</span></div>
+        <nav id="stepNav" class="step-nav" aria-label="Lesson steps">
+          <button class="step-item active" data-step="1" aria-current="step"><span class="step-num">01</span><span class="step-copy"><strong>Visitors</strong><small>Customers arrive</small></span><span class="step-arrow">↗</span></button>
+          <button class="step-item" data-step="2"><span class="step-num">02</span><span class="step-copy"><strong>DNS</strong><small>Find the right address</small></span><span class="step-arrow">↗</span></button>
+          <button class="step-item" data-step="3"><span class="step-num">03</span><span class="step-copy"><strong>Application Load Balancer</strong><small>The receptionist</small></span><span class="step-arrow">↗</span></button>
+          <button class="step-item" data-step="4"><span class="step-num">04</span><span class="step-copy"><strong>Listener</strong><small>Ports and rules</small></span><span class="step-arrow">↗</span></button>
+          <button class="step-item" data-step="5"><span class="step-num">05</span><span class="step-copy"><strong>Target Group</strong><small>Meet the web servers</small></span><span class="step-arrow">↗</span></button>
+          <button class="step-item" data-step="6"><span class="step-num">06</span><span class="step-copy"><strong>Traffic Distribution</strong><small>Share the workload</small></span><span class="step-arrow">↗</span></button>
+          <button class="step-item" data-step="7"><span class="step-num">07</span><span class="step-copy"><strong>Health Checks</strong><small>Find a sick server</small></span><span class="step-arrow">↗</span></button>
+          <button class="step-item" data-step="8"><span class="step-num">08</span><span class="step-copy"><strong>Scaling</strong><small>Add capacity</small></span><span class="step-arrow">↗</span></button>
+          <button class="step-item" data-step="9"><span class="step-num">09</span><span class="step-copy"><strong>Complete Architecture</strong><small>See the whole picture</small></span><span class="step-arrow">↗</span></button>
+        </nav>
+        <div class="sidebar-note"><span class="note-icon">✦</span><span><strong>Ravi’s shop</strong><small>One shop. Many servers. One smart receptionist.</small></span></div>
+      </aside>
+      <div class="lesson-main">
+        <div class="lesson-toolbar">
+          <div><span class="section-kicker">NOW EXPLORING</span><h2 id="activeTitle">01 · Visitors</h2></div>
+          <div class="play-controls">
+            <button id="playBtn" class="control-button primary" type="button">▶ <span>Play</span></button>
+            <button id="pauseBtn" class="control-button" type="button">Ⅱ <span>Pause</span></button>
+            <button id="resetBtn" class="control-button" type="button">↺ <span>Reset</span></button>
+          </div>
+        </div>
+        <div class="diagram-frame">
+          <div class="diagram-topline"><span><i class="status-pip"></i> LIVE TRAFFIC MAP</span><span id="diagramStatus">STEP 1 OF 9</span></div>
+          <div class="diagram-scroll">
+            <svg id="architecture" viewBox="0 0 1100 620" role="img" aria-labelledby="svgTitle svgDesc" xmlns="http://www.w3.org/2000/svg">
+              <title id="svgTitle">Animated AWS Application Load Balancer architecture</title>
+              <desc id="svgDesc">Visitors send requests through DNS and a load balancer to healthy web servers. Use the steps to reveal the architecture progressively.</desc>
+              <defs>
+                <linearGradient id="bgGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d2340"/><stop offset="1" stop-color="#071426"/></linearGradient>
+                <linearGradient id="albGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c8b91"/><stop offset="1" stop-color="#155e70"/></linearGradient>
+                <filter id="glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#8db2dc" stroke-opacity=".055" stroke-width="1"/></pattern>
+                <path id="requestPath" d="M130 168 C185 168 198 168 244 168 S318 168 360 168 S433 168 480 168 S548 222 604 270 S688 318 748 318"/>
+                <path id="requestPath2" d="M130 168 C185 168 198 168 244 168 S318 168 360 168 S433 168 480 168 S548 225 604 270 S690 450 748 450"/>
+                <path id="responsePath" d="M770 318 C700 318 676 270 604 270 S530 168 480 168 S400 168 360 168 S290 168 244 168 S170 168 130 168"/>
+              </defs>
+              <rect width="1100" height="620" rx="20" fill="url(#bgGlow)"/>
+              <rect width="1100" height="620" rx="20" fill="url(#grid)"/>
+              <g id="stars" fill="#a5d5ff" opacity=".42"><circle cx="82" cy="70" r="1.5"/><circle cx="212" cy="95" r="1"/><circle cx="320" cy="48" r="1.4"/><circle cx="542" cy="66" r="1"/><circle cx="690" cy="90" r="1.4"/><circle cx="940" cy="70" r="1.2"/><circle cx="1020" cy="190" r="1.5"/><circle cx="1000" cy="525" r="1"/><circle cx="580" cy="555" r="1.4"/><circle cx="175" cy="525" r="1.2"/><circle cx="55" cy="340" r="1"/></g>
+              <!-- Wires first: all routes are visible as context; later steps animate them. -->
+              <g id="wires" fill="none" stroke-linecap="round">
+                <path d="M132 168H242" stroke="#3d9bf5" stroke-width="3" stroke-dasharray="7 8"/>
+                <path d="M350 168H385" stroke="#3d9bf5" stroke-width="3" stroke-dasharray="7 8"/>
+                <path d="M500 168H535" stroke="#e8bd56" stroke-width="3" stroke-dasharray="7 8"/>
+                <path d="M640 188V245" stroke="#a58bff" stroke-width="3" stroke-dasharray="7 8"/>
+                <path d="M640 290H704V318H745" stroke="#41d6a0" stroke-width="3" stroke-dasharray="7 8"/>
+                <path d="M640 290H704V450H745" stroke="#41d6a0" stroke-width="3" stroke-dasharray="7 8"/>
+                <path d="M640 290H704V535H745" stroke="#41d6a0" stroke-width="3" stroke-dasharray="7 8"/>
+                <path d="M780 318H840" stroke="#41d6a0" stroke-width="2" stroke-dasharray="4 7" opacity=".4"/>
+                <path d="M780 450H840" stroke="#41d6a0" stroke-width="2" stroke-dasharray="4 7" opacity=".4"/>
+              </g>
+              <!-- Boxes second -->
+              <g id="visitorNode" class="node" data-min-step="1">
+                <rect x="32" y="120" width="100" height="96" rx="16" fill="#102e50" stroke="#388de0" stroke-width="1.5"/>
+                <circle cx="82" cy="151" r="15" fill="#1b4b79"/><circle cx="82" cy="145" r="5" fill="#d4eaff"/><path d="M70 160Q82 146 94 160" fill="none" stroke="#d4eaff" stroke-width="3" stroke-linecap="round"/>
+                <text x="82" y="187" text-anchor="middle" class="node-title">Visitors</text><text x="82" y="202" text-anchor="middle" class="node-sub">Internet</text>
+              </g>
+              <g id="dnsNode" class="node" data-min-step="2">
+                <rect x="242" y="120" width="108" height="96" rx="16" fill="#102e50" stroke="#388de0" stroke-width="1.5"/>
+                <circle cx="296" cy="150" r="16" fill="none" stroke="#65b7ff" stroke-width="2"/><path d="M280 150H312M296 134C287 142 287 158 296 166M296 134C305 142 305 158 296 166" fill="none" stroke="#65b7ff" stroke-width="1.5"/>
+                <text x="296" y="187" text-anchor="middle" class="node-title">Route 53</text><text x="296" y="202" text-anchor="middle" class="node-sub">DNS lookup</text>
+              </g>
+              <g id="albNode" class="node" data-min-step="3">
+                <rect x="385" y="98" width="115" height="140" rx="17" fill="url(#albGrad)" stroke="#4ce0d5" stroke-width="1.7"/>
+                <circle cx="442" cy="132" r="19" fill="#0e4d5a" stroke="#62e5db"/><path d="M432 132h20m-7-7 7 7-7 7M437 125l-7 7 7 7" fill="none" stroke="#8df7ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="442" y="169" text-anchor="middle" class="node-title">Application</text><text x="442" y="184" text-anchor="middle" class="node-title">Load Balancer</text><text x="442" y="209" text-anchor="middle" class="node-sub">The receptionist</text>
+              </g>
+              <g id="listenerNode" class="node" data-min-step="4">
+                <rect x="535" y="120" width="105" height="96" rx="15" fill="#3a2e19" stroke="#e9bd58" stroke-width="1.5"/>
+                <circle cx="587" cy="148" r="13" fill="#634d22"/><path d="M580 148h14m-7-7v14" stroke="#ffe09a" stroke-width="2" stroke-linecap="round"/>
+                <text x="587" y="181" text-anchor="middle" class="node-title">Listener</text><text x="587" y="198" text-anchor="middle" class="node-sub">:80 / :443</text>
+              </g>
+              <g id="targetGroup" class="node" data-min-step="5">
+                <rect x="545" y="245" width="190" height="330" rx="20" fill="#251f48" fill-opacity=".44" stroke="#a58bff" stroke-width="1.5" stroke-dasharray="6 6"/>
+                <rect x="563" y="258" width="154" height="30" rx="10" fill="#3d306c" stroke="#a58bff"/>
+                <text x="640" y="277" text-anchor="middle" class="node-title">Target Group</text>
+                <text x="640" y="305" text-anchor="middle" class="node-sub">Registered targets</text>
+              </g>
+              <g id="server1" class="node server" data-min-step="5">
+                <rect class="server-card" x="745" y="285" width="150" height="70" rx="13" fill="#123a34" stroke="#42d9a0" stroke-width="1.5"/>
+                <rect x="758" y="301" width="24" height="28" rx="4" fill="#1b6855"/><path d="M764 308h12m-12 6h12m-12 6h7" stroke="#a2ffda" stroke-width="2" stroke-linecap="round"/>
+                <text x="831" y="310" text-anchor="middle" class="node-title">EC2 Web 1</text><text x="831" y="328" text-anchor="middle" class="node-sub">AZ A · Healthy</text><text x="831" y="345" text-anchor="middle" class="health-label">✓ healthy</text>
+              </g>
+              <g id="server2" class="node server" data-min-step="5">
+                <rect class="server-card" x="745" y="417" width="150" height="70" rx="13" fill="#123a34" stroke="#42d9a0" stroke-width="1.5"/>
+                <rect x="758" y="433" width="24" height="28" rx="4" fill="#1b6855"/><path d="M764 440h12m-12 6h12m-12 6h7" stroke="#a2ffda" stroke-width="2" stroke-linecap="round"/>
+                <text x="831" y="442" text-anchor="middle" class="node-title">EC2 Web 2</text><text x="831" y="460" text-anchor="middle" class="node-sub">AZ B · Healthy</text><text x="831" y="477" text-anchor="middle" class="health-label">✓ healthy</text>
+              </g>
+              <g id="server3" class="node server" data-min-step="8">
+                <rect class="server-card" x="745" y="502" width="150" height="70" rx="13" fill="#123a34" stroke="#42d9a0" stroke-width="1.5"/>
+                <rect x="758" y="518" width="24" height="28" rx="4" fill="#1b6855"/><path d="M764 525h12m-12 6h12m-12 6h7" stroke="#a2ffda" stroke-width="2" stroke-linecap="round"/>
+                <text x="831" y="527" text-anchor="middle" class="node-title">EC2 Web 3</text><text x="831" y="545" text-anchor="middle" class="node-sub">AZ A · New target</text><text x="831" y="562" text-anchor="middle" class="health-label">✓ healthy</text>
+              </g>
+              <g id="asgNode" class="node" data-min-step="8">
+                <rect x="925" y="405" width="145" height="76" rx="14" fill="#18372d" stroke="#42d9a0" stroke-width="1.5"/>
+                <path d="M946 429l8-8 8 8-8 8zM954 437v11m-6-5h12" fill="none" stroke="#6cebb8" stroke-width="2"/>
+                <text x="1002" y="433" text-anchor="middle" class="node-title">Auto Scaling</text><text x="1002" y="449" text-anchor="middle" class="node-title">Group</text><text x="1002" y="466" text-anchor="middle" class="node-sub">Adds capacity</text>
+              </g>
+              <g id="securityNode" class="node" data-min-step="9">
+                <rect x="32" y="385" width="180" height="88" rx="14" fill="#183047" stroke="#4e9eea"/>
+                <path d="M57 405l13-5 13 5v12c0 10-8 17-13 19-5-2-13-9-13-19z" fill="#205b83" stroke="#7cc4ff" stroke-width="1.5"/><path d="M64 416l4 4 8-9" fill="none" stroke="#d3efff" stroke-width="2"/>
+                <text x="137" y="414" text-anchor="middle" class="node-title">Security groups</text><text x="137" y="432" text-anchor="middle" class="node-sub">Allow only needed traffic</text><text x="137" y="449" text-anchor="middle" class="node-sub">HTTPS / TLS protection</text>
+              </g>
+              <g id="cloudwatchNode" class="node" data-min-step="9">
+                <rect x="925" y="120" width="145" height="98" rx="14" fill="#382b19" stroke="#e9bd58" stroke-width="1.5"/>
+                <path d="M944 172v-19m9 19v-29m9 29v-12m9 12v-22" stroke="#ffd777" stroke-width="3" stroke-linecap="round"/>
+                <text x="1013" y="151" text-anchor="middle" class="node-title">CloudWatch</text><text x="1013" y="190" text-anchor="middle" class="node-sub">Metrics & alarms</text><text x="1013" y="205" text-anchor="middle" class="node-sub">Monitor the shop</text>
+              </g>
+              <g id="tlsLabel" class="node" data-min-step="9"><rect x="382" y="252" width="125" height="34" rx="10" fill="#163b47" stroke="#4ce0d5"/><text x="444" y="273" text-anchor="middle" class="node-sub">🔒 TLS ends at ALB</text></g>
+              <g id="zoneLabels" class="node" data-min-step="6"><text x="914" y="276" class="zone-label">AVAILABILITY ZONE A</text><text x="914" y="408" class="zone-label">AVAILABILITY ZONE B</text></g>
+              <g id="monitorWire" class="node" data-min-step="9" fill="none" stroke="#e9bd58" stroke-width="2" stroke-dasharray="4 6"><path d="M500 113C610 45 820 55 925 145"/></g>
+              <!-- Moving packets are intentionally last, above the architecture. -->
+              <g id="movingPackets" class="node" data-min-step="2">
+                <g class="packet envelope"><rect x="-10" y="-7" width="20" height="14" rx="2" fill="#58b5ff" stroke="#cceaff"/><path d="M-9-5L0 2 9-5" fill="none" stroke="#eaf7ff" stroke-width="1.5"/><animateMotion dur="3.5s" repeatCount="indefinite" rotate="auto"><mpath href="#requestPath"/></animateMotion></g>
+                <g class="packet cart"><text x="0" y="0" font-size="21" text-anchor="middle">🛒</text><animateMotion dur="4.2s" begin="1s" repeatCount="indefinite" rotate="auto"><mpath href="#requestPath2"/></animateMotion></g>
+                <g class="packet response"><text x="0" y="0" font-size="19" text-anchor="middle">📦</text><animateMotion dur="4s" begin="1.5s" repeatCount="indefinite" rotate="auto"><mpath href="#responsePath"/></animateMotion></g>
+                <g class="packet check"><text x="0" y="0" font-size="22" text-anchor="middle">✓</text><animateMotion dur="2.7s" repeatCount="indefinite"><mpath href="#requestPath"/></animateMotion></g>
+              </g>
+              <g id="failureBadge" class="node" data-min-step="7" opacity="0"><rect x="904" y="418" width="20" height="20" rx="10" fill="#b93448"/><text x="914" y="433" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">×</text></g>
+              <g id="monitorChart" class="node" data-min-step="9"><rect x="958" y="65" width="88" height="35" rx="8" fill="#10243b" stroke="#d9ad4e"/><path d="M968 87l10-9 9 6 11-12 10 5 9-7 13 8" fill="none" stroke="#ffd777" stroke-width="2"/></g>
+            </svg>
+          </div>
+          <div class="diagram-legend"><span><i class="legend-dot blue"></i> Request path</span><span><i class="legend-dot green"></i> Healthy target</span><span><i class="legend-dot purple"></i> Target group</span><span class="live-indicator"><i></i> Animation running</span></div>
+        </div>
+        <div class="caption-card">
+          <div class="caption-head"><span class="caption-icon">✦</span><div><span class="section-kicker">THE IDEA, SIMPLIFIED</span><h3 id="captionTitle">Visitors arrive at Ravi’s shop</h3></div></div>
+          <div class="caption-columns">
+            <div><span class="caption-label">IN PLAIN WORDS</span><p id="plainWords">Customers open Ravi’s website, just like walking up to a busy shop.</p></div>
+            <div><span class="caption-label">TECHNICAL NAME</span><p id="technicalName">Client / internet request</p></div>
+            <div><span class="caption-label">WATCH THE PICTURE</span><p id="watchPicture">Blue visitors represent customers arriving from the internet.</p></div>
+          </div>
+          <div class="caption-footer"><span id="progressText">1 of 9 concepts explored</span><div class="progress-track"><span id="progressBar"></span></div><button id="nextBtn" class="next-button" type="button">Next step <span>→</span></button></div>
+        </div>
+        <div class="simulation-card">
+          <div class="simulation-copy"><span class="simulation-icon">⚡</span><div><strong>Try a server failure</strong><p>See how the ALB stops sending new requests to an unhealthy target.</p></div></div>
+          <button id="failureBtn" class="control-button danger" type="button">Simulate EC2 failure</button>
+          <span id="failureStatus" class="simulation-status" role="status">All simulated targets healthy</span>
+        </div>
+        <footer class="page-footer"><span>Built for cloud learners · Plain HTML, CSS & JavaScript</span><strong>#Buildwithmohit</strong></footer>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
